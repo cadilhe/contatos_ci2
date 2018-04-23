@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Exercício</a></li>
-                <li><a href="#">Readme</a></li>
+                <li><a href="<?= base_url() ?>dashboard/logout">Logout</a></li>
                 
             </ul>
             <form class="navbar-form navbar-right">
@@ -29,8 +29,7 @@
             <ul class="nav nav-sidebar">
                 <li><a href="<?= base_url() ?>">Tela Inicial</a></li>                        
                 <li><a href="<?= base_url() ?>usuario">Usuários</a></li>
-                <li><a href="<?= base_url() ?>usuario/cadastro">Cadastrar</a></li>
-                <li><a href="#">Clientes</a></li>
+                <li><a href="<?= base_url() ?>usuario/cadastro">Cadastrar</a></li>                
             </ul>            
         </div>
     </div>

@@ -41,7 +41,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="senha">Senha: </label><input type="button" class=" btn btn-default btn-block" value="Atualizar Senha"  data-toggle="modal" data-target="#myModal" > 
+                        <label for="senha">Senha: </label> 
+                        <input type="button" class=" btn btn-default btn-block" value="Atualizar Senha"  data-toggle="modal" data-target="#myModal" > 
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -103,24 +104,5 @@
 
 
 <!-- JAVASCRIPT -->
-<script> 
-    $(document).ready(function() { 
-        $("#senha_nova").keyup(checkPasswordMatch); 
-        $("#senha_confirmar").keyup(checkPasswordMatch); 
-    }); 
-    function checarSenha() { 
-        var password = $("#senha_nova").val(); 
-        var confirmPassword = $("#senha_confirmar").val(); 
-        
-        if (password == '' || '' == confirmPassword) { 
-            $("#divcheck").html("<span style='color: red'>Campo de senha vazio!</span>"); 
-            document.getElementById("enviarsenha").disabled = true; 
-        } else if (password != confirmPassword) { 
-            $("#divcheck").html("<span style='color: red'>Senhas não conferem!</span>"); 
-            document.getElementById("enviarsenha").disabled = true; 
-        } else { 
-            $("#divcheck").html("<span style='color: green'>Senha iguais!</span>"); 
-            document.getElementById("enviarsenha").disabled = false; 
-        } 
-    }
+<script> $(document).ready(function() { $("#senha_nova").keyup(checkPasswordMatch); $("#senha_confirmar").keyup(checkPasswordMatch); }); function checarSenha() { var password = $("#senha_nova").val(); var confirmPassword = $("#senha_confirmar").val(); if (password == '' || '' == confirmPassword) { $("#divcheck").html("<span style='color: red'>Campo de senha vazio!</span>"); document.getElementById("enviarsenha").disabled = true; } else if (password != confirmPassword) { $("#divcheck").html("<span style='color: red'>Senhas não conferem!</span>"); document.getElementById("enviarsenha").disabled = true; } else { $("#divcheck").html("<span style='color: green'>Senha iguais!</span>"); document.getElementById("enviarsenha").disabled = false; } }
 </script>

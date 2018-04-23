@@ -3,12 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuario extends CI_Controller 
 { 
+
+    public function verificar_sessao() 
+    {
+        if($this->session->userdate('logado') == false)
+        {
+            redirect('dashboard/login');
+        }
+    }  
+
+    
+    
     public function index($indice=null) 
     { 
+        $this->verificar_sessao();
         // CARREGA OS DADOS DA TABELA 'usuario' E ARMAZENA NO ARRAY $dados['usuarios'] 
         $this->db->select('*'); 
         $dados['usuarios'] = $this->db->get('usuario')->result(); 
-       
+
 
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
@@ -29,7 +41,6 @@ class Usuario extends CI_Controller
             $this->load->view('includes/msg_erro',$data); 
         }
 
-        
         else if($indice==3)
         { 
             $data['msg'] = "Usuario excluído com sucesso."; 
@@ -41,8 +52,6 @@ class Usuario extends CI_Controller
             $data['msg'] = "Não foi possível excluir o usuário."; 
             $this->load->view('includes/msg_erro',$data); 
         }
-        
-        /*
 
         else if($indice==5)
         { 
@@ -55,42 +64,6 @@ class Usuario extends CI_Controller
             $data['msg'] = "Não foi possível atualizar o usuário."; 
             $this->load->view('includes/msg_erro',$data); 
         }
-        */
-
-
-
-        // SUGESTAO NO YOUTUBE        
-        /*
-        switch ($indice) {
-            case 1:
-                $data['msg'] = "Usuário cadastrado com sucesso.";
-                $this->load->view('includes/msg_sucesso', $data);
-                break;
-            case 2:
-                $data['msg'] = "Falha ao cadastrar usuário.";
-                $this->load->view('includes/msg_erro', $data);
-                break;
-
-            case 3:
-                $data['msg'] = "Usuário excluído com sucesso.";
-                $this->load->view('includes/msg_sucesso', $data);
-                break;
-            case 4:
-                $data['msg'] = "Falha ao excluir usuário.";
-                $this->load->view('includes/msg_erro', $data);
-                break;
-            case 5:
-                $data['msg'] = "Usuário atualizado com sucesso.";
-                $this->load->view('includes/msg_sucesso', $data);
-                break;
-            case 6:
-                $data['msg'] = "Falha ao atualizar usuário.";
-                $this->load->view('includes/msg_erro', $data);
-                break;
-        } 
-*/
-
-        // FIM VERIFICATIOS E MENSAGENS
 
         $this->load->view('listar_usuario', $dados); 
         $this->load->view('includes/html_footer'); 
@@ -99,6 +72,7 @@ class Usuario extends CI_Controller
     // PÁGINA CADASTRAR
     public function cadastro() 
     { 
+        $this->verificar_sessao(); 
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
         $this->load->view('cadastro_usuario'); 
@@ -108,6 +82,7 @@ class Usuario extends CI_Controller
     // MÉTODO CADASTRAR
     public function cadastrar()
     { 
+        $this->verificar_sessao(); 
         $data['nome'] = $this->input->post('nome'); 
         $data['cpf'] = $this->input->post('cpf'); 
         $data['nome'] = $this->input->post('nome'); 
@@ -127,10 +102,10 @@ class Usuario extends CI_Controller
     }
 
 
-    
-
+    // MÉTODO EXCLUIR
     public function excluir($id=null)
     { 
+        $this->verificar_sessao(); 
         $this->db->where('idUsuario',$id); 
         if($this->db->delete('usuario'))
         { 
@@ -140,14 +115,13 @@ class Usuario extends CI_Controller
         { 
             redirect('usuario/4'); 
         } 
-    } 
+    }
     
-    /*
-
-
-    // PÁGINA ATUALIZAR
+    
+    // MÉTODO ATUALIZAR
     public function atualizar($id=null,$indice=null)
     { 
+        $this->verificar_sessao(); 
         $this->db->where('idUsuario',$id); 
         $data['usuario'] = $this->db->get('usuario')->result(); 
         $this->load->view('includes/html_header'); 
@@ -167,14 +141,19 @@ class Usuario extends CI_Controller
         $this->load->view('includes/html_footer'); 
     } 
 
-    public function salvar_atualizacao(){ 
+    // MÉTODO SALVAR ATUALIZAÇÃO
+    public function salvar_atualizacao()
+    { 
+        $this->verificar_sessao(); 
         $id = $this->input->post('idUsuario'); 
-        $data['nome'] = $this->input->post('nome'); 
+
+        $data['nome'] = $this->input->post('nome');  
         $data['cpf'] = $this->input->post('cpf'); 
         $data['endereco'] = $this->input->post('endereco'); 
         $data['email'] = $this->input->post('email'); 
         $data['status'] = $this->input->post('status'); 
-        $data['nivel'] = $this->input->post('nivel'); 
+        $data['nivel'] = $this->input->post('nivel');
+
         $this->db->where('idUsuario',$id); 
 
         if($this->db->update('usuario',$data))
@@ -187,8 +166,10 @@ class Usuario extends CI_Controller
         } 
     } 
 
+    // MÉTODO SALVAR SENHA
     public function salvar_senha()
     { 
+       $this->verificar_sessao(); 
         $id = $this->input->post('idUsuario'); 
         $senha_antiga = md5($this->input->post('senha_antiga')); 
         $senha_nova = md5($this->input->post('senha_nova')); 
@@ -207,7 +188,7 @@ class Usuario extends CI_Controller
         { 
             redirect('usuario/atualizar/'.$id.'/2'); 
         } 
-    }
-    */
+    }   
+    
 
 }

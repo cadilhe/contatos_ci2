@@ -1,11 +1,11 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    
+
     <div class="col-md-12">
         <h1 class="page-header">Novo Usuário</h1>
     </div>
 
     <div class="col-md-12">
-        
+
         <form action="<?= base_url() ?>usuario/cadastrar" method="post">
             <div class="form-group">
                 <label for="nome">Nome:</label> <input class="form-control" id="nome" name="nome" placeholder="Informe o nome..." required="" type="text" /> 
@@ -40,6 +40,6 @@
                 <button class="btn btn-default" type="reset">Cancelar</button> 
             </div>
         </form>
-    
+
     </div>
 </div>

@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<?= base_url() ?>favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Área Restrita - Administração</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template -->
     <link href="<?= base_url() ?>assets/css/dashboard.css" rel="stylesheet">
+      
+    <link href="<?= base_url() ?>assets/css/signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="http://localhost/crud_ci2/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
