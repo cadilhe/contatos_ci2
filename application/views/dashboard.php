@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nome`, `cpf`, `endereco`, `email`, `senha`, `status`, `nivel`) VALUES
-(1, 'Carlos Alberto Fernandes Cadilhe', '123456789-00', 'Rua Olimpio Leite da Silva, 77, Sobreloja', 'carlos.cadilhe1973@gmail.com', '476e81bf040ea41ba3aeeb6db105ab8c', 1, 1),
-(2, 'Pedro Henrique', '123456789-99', 'Ru Caraguatatuba 12345', 'pedro.henrique123@gmail.com', 'c6cc8094c2dc07b700ffcc36d64e2138', 1, 2),
-(3, 'Patricia Lacerda', '09876543210', 'Estrada das Oliveiras', 'patcacal1212@gmail.com', '743982df4b872edeb81ed3ed9c7e618b', 1, 2),
-(4, 'Mayra Bueno', '132465798-00', 'Rua Rio Grande do Norte', 'mayra.bueno12345@email.com', '3b6533cfca994e8bd63aaea47c2ee0c9', 1, 2),
-(5, 'Peterson Munuera', '32165498700', 'Rua Peterson 23456', 'peterson.un@hotmail.com', '3e6f31d8c5f341a9c1b16dcf607e1ace', 1, 1);
+(1, 'Carlos Alberto', '123456789-00', 'Rua Olimpio Leite da Silva, 77, Sobreloja', 'carlos.cadilhe1973@gmail.com', '476e81bf040ea41ba3aeeb6db105ab8c', 1, 1),
+(2, 'Pedro H', '123456789-99', 'Ru Caraguatatuba 12345', 'pedro.henrique123@gmail.com', 'c6cc8094c2dc07b700ffcc36d64e2138', 1, 2),
+(3, 'Patricia L', '09876543210', 'Estrada das Oliveiras', 'patcacal1212@gmail.com', '743982df4b872edeb81ed3ed9c7e618b', 1, 2),
+(4, 'Mayra B', '132465798-00', 'Rua Rio Grande do Norte', 'mayra.bueno12345@email.com', '3b6533cfca994e8bd63aaea47c2ee0c9', 1, 2),
+(5, 'Peterson M', '32165498700', 'Rua Peterson 23456', 'peterson.un@hotmail.com', '3e6f31d8c5f341a9c1b16dcf607e1ace', 1, 1);
 COMMIT;
 
     </pre>
