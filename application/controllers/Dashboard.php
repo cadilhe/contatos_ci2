@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller {
     
 public function verificar_sessao() 
 {
-    if($this->session->userdate('logado') == false)
+    if($this->session->user_date('logado') == false)
     {
         redirect('dashboard/login');
     }

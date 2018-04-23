@@ -1,25 +1,32 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Tela Inicial</h1>
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: 23-Abr-2018 às 21:05
+-- Versão do servidor: 5.7.19
+-- PHP Version: 7.1.9
 
-    <div class="alert alert-warning" role="alert">
-        Esta área restrita está acessível para todos, porque ainda não foi implementado o sistem de Login.     
-    </div>
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-    <div class="alert alert-danger" role="alert">
-        Falta implementar a busca por nome, telefone e endereço
-    </div>
 
-    <h2>Como Testar</h2>
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-    <ol>
-        <li>Criar o banco de dados <strong>'contatos_ci2'</strong></li>
-        <li>Editar o arquivo <strong>application/config/database.php</strong> ara ajustar as configurações do banco de dados</li>
-        <li>Executar os comando sql abaixo para criar e popular a tabela de usuários:</li>
-    </ol>    
-    
-    <p>&nbsp;&nbsp;</p>
-        
-        <pre>
+--
+-- Database: `contatos_ci2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -46,7 +53,6 @@ INSERT INTO `usuario` (`idUsuario`, `nome`, `cpf`, `endereco`, `email`, `senha`,
 (5, 'Peterson Munuera', '32165498700', 'Rua Peterson 23456', 'peterson.un@hotmail.com', '3e6f31d8c5f341a9c1b16dcf607e1ace', 1, 1);
 COMMIT;
 
-    </pre>
-
-
-</div>
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
