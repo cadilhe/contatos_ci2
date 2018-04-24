@@ -13,7 +13,7 @@
             <tr> 
                 <th> ID</th> 
                 <th> Nome</th> 
-                <th> Sorenome</th> 
+                <th> Sobrenome</th> 
                 <th> Email</th>                
                 <th> </th> 
                 <th> </th> 

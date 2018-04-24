@@ -1,62 +1,21 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Tela Inicial</h1>
 
-    <div class="alert alert-warning" role="alert">
-        Esta área restrita está acessível para todos, porque ainda não foi implementado o sistema de Login.     
-    </div>
 
     <div class="alert alert-danger" role="alert">
         Falta implementar a busca por nome, telefone e endereço
     </div>
 
     <h2>Como Testar</h2>
-
-    <ol>
+    
+    <ul>
         <li>Criar um banco de dados <strong>mysql</strong></li>
         <li>Editar o arquivo <strong>application/config/database.php</strong> ara ajustar as configurações necessárias do banco de dados - servidor usuario, senha, nome do banco etc.</li>
-        <li>Criar as tabelas 'usuario' e 'contato', conforme o script abaixo:</li>
-       
-    </ol>    
-    
-    <p>&nbsp;&nbsp;</p>
-        
-    <pre>
+        <li>Execute o script <strong>tabelas.sql</strong> da pasta <strong>/sql</strong> para criar as tabelas 'usuario' e 'contato', e o usuário 'admin'</li>
+        <li>Aponte o browser para o endereço http://localhost/contatos_ci</li>
+        <li>Faça login com usuário: <strong>admin@admin</strong> e senha: <strong>admin</strong></li>
+    </ul>
 
-DROP TABLE IF EXISTS `contato`;
-CREATE TABLE IF NOT EXISTS `contato` (
-  `idContato` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
-  `sobrenome` varchar(50) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `rua` varchar(50) NOT NULL,
-  `numero` varchar(10) NOT NULL,
-  `cep` varchar(10) NOT NULL,
-  `bairro` varchar(50) NOT NULL,
-  `cidade` varchar(50) NOT NULL,
-  `estado` varchar(50) NOT NULL,
-  `pais` varchar(50) NOT NULL,
-  `telefone1` varchar(15) DEFAULT NULL,
-  `telefone2` varchar(15) DEFAULT NULL,
-  `telefone3` varchar(15) DEFAULT NULL,
-  `telefone4` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`idContato`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
-
-
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
-  `sobrenome` varchar(50) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-   
-
-
-    </pre>
-
+    <p>Enjoy!
 
 </div>

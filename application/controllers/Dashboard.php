@@ -3,13 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
     
-    /**
-    É sempre conveniente criar um construror para cada Controller. Apos este contrutor, pode-se chamar os helpers, libraries, e demais elementos necessários para o Controller
-    **/
     
 public function verificar_sessao() 
 {
-    if($this->session->user_date('logado') == false)
+    if($this->session->userdata('logado') == false)
     {
         redirect('dashboard/login');
     }
@@ -41,7 +38,7 @@ public function verificar_sessao()
         
         $this->db->where('email',$email);
         $this->db->where('senha',$senha);
-        $this->db->where('status',1);
+        
         $data['usuario'] = $this->db->get('usuario')->result();
         
         if(count($data['usuario']) == 1)

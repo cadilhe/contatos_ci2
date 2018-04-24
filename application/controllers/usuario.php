@@ -5,18 +5,18 @@ class Usuario extends CI_Controller
 { 
 
     
-   /* public function verificar_sessao() 
+   public function verificar_sessao() 
     {
         if($this->session->userdata('logado') == false)
         {
             redirect('dashboard/login');
         }
-    } */
+    }
     
 
     public function index($indice=null) 
     { 
-        //$this->verificar_sessao();
+        $this->verificar_sessao();
         // CARREGA OS DADOS DA TABELA 'usuario' E ARMAZENA NO ARRAY $dados['usuarios'] 
         $this->db->select('*'); 
         $dados['usuarios'] = $this->db->get('usuario')->result(); 
@@ -27,8 +27,7 @@ class Usuario extends CI_Controller
 
 
 
-        //  VERIFICATIONS E MENSAGENS 
-
+        //  VERIFICATIONS E MENSAGENS
         if($indice==1)
         { 
             $data['msg'] = "Usuario cadastrado com sucesso."; 
@@ -72,7 +71,7 @@ class Usuario extends CI_Controller
     // PÁGINA CADASTRAR
     public function cadastro() 
     { 
-        //$this->verificar_sessao();
+        $this->verificar_sessao();
         
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
@@ -83,7 +82,7 @@ class Usuario extends CI_Controller
     // MÉTODO CADASTRAR
     public function cadastrar()
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $data['nome'] = $this->input->post('nome'); 
         $data['sobrenome'] = $this->input->post('sobrenome'); 
@@ -104,7 +103,7 @@ class Usuario extends CI_Controller
     // MÉTODO EXCLUIR
     public function excluir($id=null)
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $this->db->where('idUsuario',$id); 
         if($this->db->delete('usuario'))
@@ -121,10 +120,11 @@ class Usuario extends CI_Controller
     // MÉTODO ATUALIZAR
     public function atualizar($id=null,$indice=null)
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $this->db->where('idUsuario',$id); 
         $data['usuario'] = $this->db->get('usuario')->result(); 
+        
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
 
@@ -145,7 +145,7 @@ class Usuario extends CI_Controller
     // MÉTODO SALVAR ATUALIZAÇÃO
     public function salvar_atualizacao()
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $id = $this->input->post('idUsuario'); 
 
@@ -168,7 +168,7 @@ class Usuario extends CI_Controller
     // MÉTODO SALVAR SENHA
     public function salvar_senha()
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $id = $this->input->post('idUsuario'); 
         $senha_antiga = md5($this->input->post('senha_antiga')); 

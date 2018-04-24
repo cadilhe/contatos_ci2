@@ -4,19 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Contato extends CI_Controller 
 { 
 
-    /*
+    
     public function verificar_sessao() 
     {
         if($this->session->userdata('logado') == false)
         {
             redirect('dashboard/login');
         }
-    }*/ 
+    } 
     
 
     public function index($indice=null) 
     { 
-        //$this->verificar_sessao();
+        $this->verificar_sessao();
         // CARREGA OS DADOS DA TABELA 'contato' E ARMAZENA NO ARRAY $dados['contatos'] 
         $this->db->select('*'); 
         $dados['contatos'] = $this->db->get('contato')->result(); 
@@ -24,7 +24,6 @@ class Contato extends CI_Controller
 
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
-
 
 
         //  VERIFICATIONS E MENSAGENS 
@@ -71,7 +70,7 @@ class Contato extends CI_Controller
     // PÁGINA CADASTRAR
     public function cadastro() 
     { 
-        //$this->verificar_sessao();
+        $this->verificar_sessao();
         
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
@@ -112,7 +111,7 @@ class Contato extends CI_Controller
     // MÉTODO EXCLUIR
     public function excluir($id=null)
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $this->db->where('idContato',$id); 
         if($this->db->delete('contato'))
@@ -129,23 +128,13 @@ class Contato extends CI_Controller
     // MÉTODO ATUALIZAR
     public function atualizar($id=null,$indice=null)
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $this->db->where('idContato',$id); 
         $data['contato'] = $this->db->get('contato')->result(); 
+        
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
-
-        if($indice==1)
-        {
-            $data['msg'] = "Senha atualizada com sucesso."; 
-            $this->load->view('includes/msg_sucesso',$data); 
-        }
-        else if($indice==2)
-        {
-            $data['msg'] = "Não foi possível atualizar a senha do usuário."; 
-            $this->load->view('includes/msg_erro',$data); 
-        } 
         $this->load->view('editar_contato',$data); 
         $this->load->view('includes/html_footer'); 
     } 
@@ -153,7 +142,7 @@ class Contato extends CI_Controller
     // MÉTODO SALVAR ATUALIZAÇÃO
     public function salvar_atualizacao()
     { 
-        //$this->verificar_sessao(); 
+        $this->verificar_sessao(); 
         
         $id = $this->input->post('idContato'); 
 
