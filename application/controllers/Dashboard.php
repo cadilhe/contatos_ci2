@@ -61,6 +61,15 @@ public function verificar_sessao()
        $this->session->sess_destroy();
         redirect('dashboard');
     }
+    
+    public function exercicios(){
+        
+        $this->load->view('includes/html_header');
+         $this->load->view('includes/menu');
+         $this->load->view('exercicios');
+         $this->load->view('includes/html_footer');
+    }
+
 }
 
 

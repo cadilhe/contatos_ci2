@@ -7,6 +7,19 @@
     <div class=" col-md-2"> 
         <a class = "btn btn-primary btn-block" href = "<?= base_url() ?>usuario/cadastro">Novo Usuário </a> 
     </div>
+    
+    <div class = "col-md-12" style="padding-bottom:10px">
+    <form action ="<?= base_url() ?>usuario/pesquisar" method="post" >
+        <div class = "col-md-10">
+                <input type="text" class="form-control" name = "pesquisar" placeholder="Pesquisar por..." required="" />
+        </div>
+        <div class = "col-md-2">            
+            <button class="btn btn-success btn-block" type="submit">Pesquisar</button>
+        </div>
+            
+
+    </form>
+    </div>
 
     <div class="col-md-12"> 
         <table class="table table-striped"> 

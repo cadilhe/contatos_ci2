@@ -1,47 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuario extends CI_Controller 
-{ 
+class Usuario extends CI_Controller{ 
 
-    
-   public function verificar_sessao() 
-    {
-        if($this->session->userdata('logado') == false)
-        {
+    public function verificar_sessao(){
+        if($this->session->userdata('logado') == false){
             redirect('dashboard/login');
         }
     }
-    
 
-    public function index($indice=null) 
-    { 
+    public function index($indice=null){ 
         $this->verificar_sessao();
         // CARREGA OS DADOS DA TABELA 'usuario' E ARMAZENA NO ARRAY $dados['usuarios'] 
         $this->db->select('*'); 
         $dados['usuarios'] = $this->db->get('usuario')->result(); 
 
-
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
 
 
-
-        //  VERIFICATIONS E MENSAGENS
-        if($indice==1)
-        { 
+//  VERIFICATIONS E MENSAGENS
+        if($indice==1){ 
             $data['msg'] = "Usuario cadastrado com sucesso."; 
             $this->load->view('includes/msg_sucesso',$data); 
         }
 
-        else if($indice==2)
-        { 
+        else if($indice==2){ 
             $data['msg'] = "Não foi possível cadastrar o usuário."; 
             $this->load->view('includes/msg_erro',$data); 
         }
 
-        else if($indice==3)
-        { 
+        else if($indice==3){ 
             $data['msg'] = "Usuario excluído com sucesso."; 
             $this->load->view('includes/msg_sucesso',$data); 
         }
@@ -52,14 +41,12 @@ class Usuario extends CI_Controller
             $this->load->view('includes/msg_erro',$data); 
         }
 
-        else if($indice==5)
-        { 
+        else if($indice==5){ 
             $data['msg'] = "Usuario atualizado com sucesso."; 
             $this->load->view('includes/msg_sucesso',$data); 
         }
 
-        else if($indice==6)
-        {
+        else if($indice==6){
             $data['msg'] = "Não foi possível atualizar o usuário."; 
             $this->load->view('includes/msg_erro',$data); 
         }
@@ -68,63 +55,73 @@ class Usuario extends CI_Controller
         $this->load->view('includes/html_footer'); 
     }
 
-    // PÁGINA CADASTRAR
-    public function cadastro() 
-    { 
+// PÁGINA CADASTRAR
+    public function cadastro(){ 
         $this->verificar_sessao();
-        
+
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
         $this->load->view('cadastro_usuario'); 
         $this->load->view('includes/html_footer'); 
     } 
 
-    // MÉTODO CADASTRAR
-    public function cadastrar()
-    { 
+// MÉTODO CADASTRAR
+    public function cadastrar() {        
         $this->verificar_sessao(); 
-        
-        $data['nome'] = $this->input->post('nome'); 
-        $data['sobrenome'] = $this->input->post('sobrenome'); 
-        $data['email'] = $this->input->post('email'); 
-        $data['senha'] = md5($this->input->post('senha')); 
-        // $data['nivel'] = $this->input->post('nivel'); 
+        $this->load->model('Usuario_model', 'usuario');
 
-        if($this->db->insert('usuario',$data))
-        {
+        if($this->usuario->cadastrar()) {
             redirect('usuario/1'); 
-        }         
-        else {
+        }else {
             redirect('usuario/2');
         }
     }
 
-
-    // MÉTODO EXCLUIR
-    public function excluir($id=null)
-    { 
+// MÉTODO EXCLUIR
+    public function excluir($id=null){ 
         $this->verificar_sessao(); 
-        
-        $this->db->where('idUsuario',$id); 
-        if($this->db->delete('usuario'))
-        { 
+        $this->load->model('Usuario_model', 'usuario');
+
+        if($this->usuario->excluir()) { 
             redirect('usuario/3'); 
-        }
-        else
-        { 
+        } else{ 
             redirect('usuario/4'); 
         } 
     }
+
+// MÉTODO SALVAR ATUALIZAÇÃO
+    public function salvar_atualizacao(){         
+        $this->verificar_sessao();
+        $this->load->model('Usuario_model', 'usuario');
+
+        if($this->usuario->salvar_atualizacao()){ 
+            redirect('usuario/5'); 
+        }else { 
+            redirect('usuario/6'); 
+        } 
+    } 
+
+// MÉTODO SALVAR SENHA
+    public function salvar_senha() { 
+        $this->verificar_sessao();
+
+        $this->load->model('Usuario_model', 'usuario');
+        $id = $this->input->post('idUsuario'); 
+
+        if($this->usuario->salvar_senha()){
+            redirect('usuario/atualizar/'.$id.'/1');   
+        }else {
+            redirect('usuario/atualizar/'.$id.'/2'); 
+        }
+    }
     
-    
-    // MÉTODO ATUALIZAR
-    public function atualizar($id=null,$indice=null)
-    { 
+// MÉTODO ATUALIZAR
+    public function atualizar($id=null,$indice=null) { 
         $this->verificar_sessao(); 
-        
+
         $this->db->where('idUsuario',$id); 
         $data['usuario'] = $this->db->get('usuario')->result(); 
-        
+
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
 
@@ -141,52 +138,4 @@ class Usuario extends CI_Controller
         $this->load->view('editar_usuario',$data); 
         $this->load->view('includes/html_footer'); 
     } 
-
-    // MÉTODO SALVAR ATUALIZAÇÃO
-    public function salvar_atualizacao()
-    { 
-        $this->verificar_sessao(); 
-        
-        $id = $this->input->post('idUsuario'); 
-
-        $data['nome'] = $this->input->post('nome');  
-        $data['sobrenome'] = $this->input->post('sobrenome'); 
-        $data['email'] = $this->input->post('email'); 
-        
-        $this->db->where('idUsuario',$id); 
-
-        if($this->db->update('usuario',$data))
-        { 
-            redirect('usuario/5'); 
-        }
-        else
-        { 
-            redirect('usuario/6'); 
-        } 
-    } 
-
-    // MÉTODO SALVAR SENHA
-    public function salvar_senha()
-    { 
-        $this->verificar_sessao(); 
-        
-        $id = $this->input->post('idUsuario'); 
-        $senha_antiga = md5($this->input->post('senha_antiga')); 
-        $senha_nova = md5($this->input->post('senha_nova')); 
-        $this->db->select('senha'); 
-        $this->db->where('idUsuario',$id); 
-        $data['senha'] = $this->db->get('usuario')->result(); 
-        $dados['senha'] = $senha_nova;
-
-        if($data['senha'][0]->senha==$senha_antiga)
-        { 
-            $this->db->where('idUsuario',$id); 
-            $this->db->update('usuario',$dados); 
-            redirect('usuario/atualizar/'.$id.'/1'); 
-        }
-        else
-        { 
-            redirect('usuario/atualizar/'.$id.'/2'); 
-        } 
-    }   
 }

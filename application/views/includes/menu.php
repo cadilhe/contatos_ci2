@@ -10,16 +10,17 @@
             <a class="navbar-brand" href="#">PRI01 - Exercício  Agenda Telefonica</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-           
+
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Exercício</a></li>
+                <li><a href="<?= base_url() ?>dashboard">Dashboard</a></li>
+                <li><a href="<?= base_url() ?>dashboard/exercicios">Exercício</a></li>
                 <li><a href="<?= base_url() ?>dashboard/logout">Logout</a></li>                
             </ul>
-        
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Pesquisar...">
-            </form>
+            <!--
+<form class="navbar-form navbar-right">
+<input type="text" class="form-control" placeholder="Pesquisar...">
+</form>
+-->
         </div>
     </div>
 </nav>
@@ -34,8 +35,8 @@
                 <li><hr></li>
                 <li><a href="<?= base_url() ?>contato">Listar Contatos</a></li>
                 <li><a href="<?= base_url() ?>contato/cadastro">Cadastrar contatos</a></li>
-                
-                
+
+
             </ul>            
         </div>
     </div>

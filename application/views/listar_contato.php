@@ -7,6 +7,20 @@
     <div class=" col-md-2"> 
         <a class = "btn btn-primary btn-block" href = "<?= base_url() ?>contato/cadastro">Novo Contato </a> 
     </div>
+    
+    
+    <div class = "col-md-12" style="padding-bottom:10px">
+    <form action ="<?= base_url() ?>contato/pesquisar" method="post" >
+        <div class = "col-md-10">
+                <input type="text" class="form-control" name = "pesquisar" placeholder="Pesquisar por..." required="" />
+        </div>
+        <div class = "col-md-2">            
+            <button class="btn btn-success btn-block" type="submit">Pesquisar</button>
+        </div>
+            
+
+    </form>
+    </div>
 
     <div class="col-md-12"> 
         <table class="table table-striped"> 
@@ -44,17 +58,3 @@
 </div>
 </div>
 
-<!--
-$data['nome'] = $this->input->post('nome');
-        $data['sobrenome'] = $this->input->post('sobrenome');
-        $data['email'] = $this->input->post('email');
-        $data['rua'] = $this->input->post('rua');
-        $data['numero'] = $this->input->post('numero');
-        $data['cep'] = $this->input->post('cep');
-        $data['bairro'] = $this->input->post('bairro');
-        $data['cidade'] = $this->input->post('cidade');
-        $data['estado'] = $this->input->post('estado');
-        $data['pais'] = $this->input->post('pais');    
-        $data['telefone1'] = $this->input->post('telefone1');
-        $data['telefone2'] = $this->input->post('telefone2');
--->
