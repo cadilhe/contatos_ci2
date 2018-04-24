@@ -8,29 +8,15 @@
         <form action="<?= base_url() ?>usuario/salvar_atualizacao" method="post">
 
             <input id="idUsuario" name="idUsuario" type="hidden" value="<?= $usuario[0]->idUsuario; ?>" /> <br />
+            
+            <div class="row">            
+            <div class="col-md-6">
+                    <label for="nome">Nome:</label> <input class="form-control" id="nome" name="nome" placeholder="Informe o nome..." required="" type="text" value="<?= $usuario[0]->nome; ?>" /> 
+                </div>
 
-            <div class="form-group">
-                <label for="nome">Nome:</label> <input class="form-control" id="nome" name="nome" placeholder="Informe o nome..." required="" type="text" value="<?= $usuario[0]->nome; ?>" /> 
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="cpf">CPF:</label> <input class="form-control" id="cpf" name="cpf" placeholder="Informe o cpf..." required="" type="text" value="<?= $usuario[0]->cpf; ?>" /> 
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="form-group">
-                        <label for="endereco">Endereço:</label> <input class="form-control" id="endereco" name="endereco" placeholder="Informe o endereço..." required="" type="text" value="<?= $usuario[0]->endereco; ?>" /> 
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <label for="nivel">Nível: </label> 
-                    <select class="form-control" id="nivel" name="nivel" required> 
-                        <option value="0"> --- </option>
-                        <option value="1" <?= $usuario[0]->nivel==1?' selected ' : ''; ?>> Administrador </option> 
-                        <option value="2" <?= $usuario[0]->nivel==2?' selected ' : ''; ?>> Usuário </option> 
-                    </select>
-                </div>
+                <div class="col-md-6">
+                    <label for="sobrenome">Sobrenome:</label> <input class="form-control" id="sobrenome" name="sobrenome" placeholder="Informe o sobrenome..." required="" type="text" value="<?= $usuario[0]->sobrenome; ?>" /> 
+                </div>                           
             </div>
 
             <div class="row">
@@ -44,14 +30,7 @@
                         <label for="senha">Senha: </label><input type="button" class=" btn btn-default btn-block" value="Atualizar Senha"  data-toggle="modal" data-target="#myModal" > 
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <label for="status">Status: </label> 
-                    <select class="form-control" id="status" name="status" required> 
-                        <option value="0"> --- </option> 
-                        <option value="1" <?= $usuario[0]->status==1?' selected ' : ''; ?>> Ativo </option> 
-                        <option value="2" <?= $usuario[0]->status==2?' selected ' : ''; ?>> Inativo </option>
-                    </select> 
-                </div>
+               
             </div>
 
             <div style="text-align: right;">

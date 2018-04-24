@@ -7,24 +7,18 @@
     <div class="col-md-12">
 
         <form action="<?= base_url() ?>usuario/cadastrar" method="post">
-            <div class="form-group">
-                <label for="nome">Nome:</label> <input class="form-control" id="nome" name="nome" placeholder="Informe o nome..." required="" type="text" /> 
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="cpf">CPF:</label> <input class="form-control" id="cpf" name="cpf" placeholder="Informe o cpf..." required="" type="text" /> 
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="form-group">
-                        <label for="endereco">Endereço:</label> <input class="form-control" id="endereco" name="endereco" placeholder="Informe o endereço..." required="" type="text" /> </div>
-                </div>
-                <div class="col-md-2">
-                    <label for="nivel">Nível: </label> <select class="form-control" id="nivel" name="nivel" required=""> <option value="0"> --- </option> <option value="1"> Administrador </option> <option value="2"> Usuário </option> </select> </div>
-            </div>
             <div class="row">
                 <div class="col-md-6">
+                    <label for="nome">Nome:</label> <input class="form-control" id="nome" name="nome" placeholder="Informe o nome..." required="" type="text" /> 
+                </div>
+
+                <div class="col-md-6">
+                    <label for="sobrenome">Sobrenome:</label> <input class="form-control" id="sobrenome" name="sobrenome" placeholder="Informe o sobrenome..." required="" type="text" /> 
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="email">Email:</label> <input class="form-control" id="email" name="email" placeholder="Informe o email..." required="" type="email" /> </div>
                 </div>
@@ -32,8 +26,12 @@
                     <div class="form-group">
                         <label for="senha">Senha: </label> <input class="form-control" id="senha" name="senha" placeholder="Informe a senha..." required="" type="password" /> </div>
                 </div>
-                <div class="col-md-2">
-                    <label for="status">Status: </label> <select class="form-control" id="status" name="status" required=""> <option value="0"> --- </option> <option value="1"> Ativo </option> <option value="2"> Inativo </option> </select> </div>
+                
+                
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="senha">Confirmar Senha: </label> <input class="form-control" id="senha" name="senha" placeholder="Informe a senha..." required="" type="password" disabled /> </div>
+                </div>
             </div>
             <div style="text-align: right;">
                 <button class="btn btn-success" type="submit">Enviar</button> 

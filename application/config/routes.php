@@ -41,7 +41,22 @@
 $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 
+$route['contatos'] = "contato";
+$route['cadastrar'] = "contato/cadastro";
+$route['contato/(:num)'] = "contato/index/$1";
+$route['contato/ver(:num)'] = "contato/atualizar/index/$1";
+$route['contato/editar/(:num)'] = "contato/atualizar/index/$1";
+$route['contato/deletar/(:num)'] = "contato/exluir/index/$1";
+// seuprojeto/buscar
+
+
+
 $route['usuario/(:num)'] = "usuario/index/$1";
+$route['cadastrar'] = "usuario/cadastrar";
+$route['login'] = "usuario/login";
+$route['logout'] = "usuario/logout";
+
+
 // $route['cadastro'] = 'usuario/cadastro';
 // $route['cadastrar'] = 'usuario/cadastro';
     
@@ -52,7 +67,6 @@ $route['usuario/(:num)'] = "usuario/index/$1";
 
 /* 
 
-
 $route['excluirproduto'] = 'produto/apagar';
 $route['editarproduto'] = 'produto/editar';
 $route['login'] = 'login/login';
@@ -60,7 +74,6 @@ $route['login'] = 'login/login';
 EXERCÍCIOS DE PROJETO INTEGRADO
 
 1- As rotas devem ser:
-
 seuprojeto/contatos
 seuprojeto/contato/ver/(:num)
 seuprojeto/contato/cadastrar

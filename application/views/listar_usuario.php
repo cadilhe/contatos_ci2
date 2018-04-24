@@ -13,9 +13,8 @@
             <tr> 
                 <th> ID</th> 
                 <th> Nome</th> 
-                <th> Email</th> 
-                <th> Nivel</th>                
-                <th> Status</th> 
+                <th> Sorenome</th> 
+                <th> Email</th>                
                 <th> </th> 
                 <th> </th> 
             </tr>
@@ -24,9 +23,9 @@
             <tr> 
                 <td><?= $usu->idUsuario; ?></td> 
                 <td><?= $usu->nome; ?></td> 
+                <td><?= $usu->sobrenome; ?></td> 
                 <td><?= $usu->email; ?></td> 
-                <td><?= $usu->nivel == 1 ? 'Administrador' : 'Usuário'; ?></td>               
-                <td><?= $usu->status == 1 ? 'Ativo' : 'Inativo '; ?></td> 
+                 
                 <td>
                     <a href="<?= base_url('usuario/atualizar/' . $usu->idUsuario) ?>" class="btn btn-primary btn-group">Atualizar</a> 
                     <a href="<?= base_url('usuario/excluir/' . $usu->idUsuario) ?>" class="btn btn-danger btn-group" onclick="return confirm('Deseja realmente excluir o usuário?');">Remover</a> 
