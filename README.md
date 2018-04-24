@@ -5,14 +5,12 @@
     <ol>
         <li>Criar um banco de dados <strong>mysql</strong></li>
         <li>Editar o arquivo <strong>application/config/database.php</strong> ara ajustar as configurações necessárias do banco de dados - servidor usuario, senha, nome do banco etc.</li>
-        <li>Criar as tabelas 'usuario' e 'contato', conforme o script abaixo:</li>
-       
+        <li>Criar as tabelas 'usuario' e 'contato', conforme o script abaixo:</li>       
     </ol>    
     
     <p>&nbsp;&nbsp;</p>
         
     <pre>
-
 DROP TABLE IF EXISTS `contato`;
 CREATE TABLE IF NOT EXISTS `contato` (
   `idContato` int(11) NOT NULL AUTO_INCREMENT,
