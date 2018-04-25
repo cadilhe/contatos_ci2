@@ -3,7 +3,6 @@
 class Contato_model extends CI_Model {
 
     function __construct(){
-
         parent:: __construct();
     }
 
@@ -65,13 +64,9 @@ class Contato_model extends CI_Model {
 
 
     function get_contatos_like (){
-
         $termo = $this->input->post('pesquisar');
         $this->db->select('*');
         $this->db->like('nome',$termo);
         return $this->db->get('contato')->result();
     }
-
-
-
 }

@@ -11,13 +11,13 @@ class Usuario extends CI_Controller{
 
     public function index($indice=null){ 
         $this->verificar_sessao();
+        
         // CARREGA OS DADOS DA TABELA 'usuario' E ARMAZENA NO ARRAY $dados['usuarios'] 
         $this->db->select('*'); 
         $dados['usuarios'] = $this->db->get('usuario')->result(); 
 
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
-
 
 //  VERIFICATIONS E MENSAGENS
         if($indice==1){ 
@@ -35,8 +35,7 @@ class Usuario extends CI_Controller{
             $this->load->view('includes/msg_sucesso',$data); 
         }
 
-        else if($indice==4)
-        { 
+        else if($indice==4){ 
             $data['msg'] = "Não foi possível excluir o usuário."; 
             $this->load->view('includes/msg_erro',$data); 
         }
@@ -78,11 +77,11 @@ class Usuario extends CI_Controller{
     }
 
 // MÉTODO EXCLUIR
-    public function excluir($id=null){ 
+    public function excluir($id){ 
         $this->verificar_sessao(); 
         $this->load->model('Usuario_model', 'usuario');
 
-        if($this->usuario->excluir()) { 
+        if($this->usuario->excluir($id)) { 
             redirect('usuario/3'); 
         } else{ 
             redirect('usuario/4'); 

@@ -7,6 +7,8 @@
     <div class="col-md-12">
 
         <form action="<?= base_url() ?>contato/salvar_atualizacao" method="post">
+            
+            <input id="idContato" name="idContato" type="hidden" value="<?= $contato[0]->idContato; ?>" /> <br />
 
             <div class="row">
                 <div class="col-md-6">
@@ -76,32 +78,7 @@
                         <label for="telefone2">Telefone 2:</label> <input class="form-control" id="telefone2" name="telefone2" placeholder="Informe o telefone..." type="text" value="<?= $contato[0]->telefone2; ?>" /> 
                     </div>
                 </div>
-                
-<!--
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="telefone3">Telefone 3:</label> <input class="form-control" id="telefone3" name="telefone3" placeholder="Informe o pais..."  type="text" value="<?= $contato[0]->telefone3; ?>" /> 
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="cep">Telefone 4:</label> <input class="form-control" id="cep" name="telefone4" placeholder="Informe o cep..." type="text" value="<?= $contato[0]->telefone4; ?>" /> 
-                    </div>
-                </div> 
--->
             </div>
-
-            <!--     
-<div class="col-md-2">
-<label for="nivel">Nível: </label> <select class="form-control" id="nivel" name="nivel" required=""> <option value="0"> --- </option> <option value="1"> Administrador </option> <option value="2"> Usuário </option> </select> </div>
-</div>
-
-
-
-<div class="col-md-2">
-<label for="status">Status: </label> <select class="form-control" id="status" name="status" required=""> <option value="0"> --- </option> <option value="1"> Ativo </option> <option value="2"> Inativo </option> </select> </div>
-</div>
--->
 
             <div style="text-align: left;">
                 <button class="btn btn-success" type="submit">Enviar</button> 

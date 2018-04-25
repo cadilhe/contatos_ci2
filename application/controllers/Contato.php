@@ -19,8 +19,7 @@ class Contato extends CI_Controller{
         $this->load->view('includes/html_header'); 
         $this->load->view('includes/menu'); 
 
-
-        //  VERIFICATIONS E MENSAGENS
+//  VERIFICATIONS E MENSAGENS
         if($indice==1){ 
             $data['msg'] = "Contato cadastrado com sucesso."; 
             $this->load->view('includes/msg_sucesso',$data); 
@@ -55,7 +54,7 @@ class Contato extends CI_Controller{
         $this->load->view('includes/html_footer'); 
     }
 
-    // PÁGINA CADASTRAR
+// PÁGINA CADASTRAR
     public function cadastro(){ 
         $this->verificar_sessao();
 
@@ -77,13 +76,12 @@ class Contato extends CI_Controller{
         }
     }
 
-
-    // MÉTODO EXCLUIR
-    public function excluir($id=null){ 
+// MÉTODO EXCLUIR
+    public function excluir($id){ 
         $this->verificar_sessao(); 
         $this->load->model('Contato_model', 'contato');
 
-        if($this->contato->excluir()) { 
+        if($this->contato->excluir($id)) { 
             redirect('contato/3'); 
         }else{ 
             redirect('contato/4'); 
@@ -101,7 +99,7 @@ class Contato extends CI_Controller{
             redirect('contato/6'); 
         } 
     } 
-
+    
     // MÉTODO ATUALIZAR
     public function atualizar($id=null,$indice=null) { 
         $this->verificar_sessao(); 
